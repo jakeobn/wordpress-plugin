@@ -1,0 +1,648 @@
+/**
+ * Admin styles for AI Developer Assistant
+ */
+
+/* Main container */
+.ai-developer-assistant-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.ai-developer-assistant-header {
+    background: #2271b1;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-developer-assistant-header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+/* Chat interface */
+.ai-developer-assistant-chat {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+    min-height: 600px;
+}
+
+.ai-developer-assistant-input-area {
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #f9f9f9;
+}
+
+.ai-developer-assistant-prompt-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-prompt-container label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ai-developer-assistant-prompt-container textarea {
+    min-height: 120px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.ai-developer-assistant-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ai-developer-assistant-language-selector {
+    min-width: 150px;
+}
+
+.ai-developer-assistant-submit-btn {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.ai-developer-assistant-submit-btn:hover {
+    background: #135e96;
+}
+
+.ai-developer-assistant-submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Output area */
+.ai-developer-assistant-output-area {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.ai-developer-assistant-output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-output-header h3 {
+    margin: 0;
+}
+
+.ai-developer-assistant-output-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.ai-developer-assistant-output-actions button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.ai-developer-assistant-code-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    height: calc(100% - 60px);
+}
+
+/* CodeMirror customizations */
+.CodeMirror {
+    height: 100% !important;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Loading indicator */
+.ai-developer-assistant-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.ai-developer-assistant-loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2271b1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Settings page */
+.ai-developer-assistant-settings {
+    padding: 20px;
+}
+
+.ai-developer-assistant-settings-form {
+    max-width: 800px;
+}
+
+.ai-developer-assistant-settings-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.ai-developer-assistant-settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-form-field {
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ai-developer-assistant-form-field input[type="text"],
+.ai-developer-assistant-form-field input[type="password"],
+.ai-developer-assistant-form-field input[type="number"],
+.ai-developer-assistant-form-field select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ai-developer-assistant-checkbox-field {
+    margin-bottom: 10px;
+}
+
+.ai-developer-assistant-checkbox-field label {
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.ai-developer-assistant-warning {
+    background: #fcf8e3;
+    border-left: 4px solid #f0ad4e;
+    padding: 10px 15px;
+    margin: 15px 0;
+}
+
+/* Snippets page */
+.ai-developer-assistant-snippets {
+    padding: 20px;
+}
+
+.ai-developer-assistant-snippets-list {
+    margin-top: 20px;
+}
+
+.ai-developer-assistant-snippet-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+}
+
+.ai-developer-assistant-snippet-header {
+    padding: 10px 15px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-developer-assistant-snippet-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.ai-developer-assistant-snippet-language {
+    background: #2271b1;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.ai-developer-assistant-snippet-content {
+    padding: 15px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.ai-developer-assistant-snippet-actions {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+/* Modal */
+.ai-developer-assistant-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+}
+
+.ai-developer-assistant-modal {
+    background: #fff;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ai-developer-assistant-modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-developer-assistant-modal-title {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.ai-developer-assistant-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #666;
+}
+
+.ai-developer-assistant-modal-body {
+    padding: 20px;
+}
+
+.ai-developer-assistant-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 782px) {
+    .ai-developer-assistant-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ai-developer-assistant-language-selector {
+        width: 100%;
+    }
+    
+    .ai-developer-assistant-submit-btn {
+        width: 100%;
+    }
+    
+    .ai-developer-assistant-output-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .ai-developer-assistant-output-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+/* Plugin Generator Styles */
+.ai-developer-assistant-generate-plugin {
+    margin-top: 20px;
+}
+
+.ai-developer-assistant-generation-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ai-developer-assistant-result-actions {
+    margin: 20px 0;
+}
+
+.ai-developer-assistant-result-actions a {
+    margin-right: 10px;
+}
+
+.ai-developer-assistant-plugin-files {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.ai-developer-assistant-file-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ai-developer-assistant-file-list li {
+    margin-bottom: 5px;
+    font-family: monospace;
+}
+
+/* Error Debugger Styles */
+.ai-developer-assistant-error-debugger {
+    margin-top: 20px;
+}
+
+.ai-developer-assistant-error-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ai-developer-assistant-error-explanation,
+.ai-developer-assistant-error-cause,
+.ai-developer-assistant-error-solution,
+.ai-developer-assistant-error-code {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.ai-developer-assistant-error-explanation h4,
+.ai-developer-assistant-error-cause h4,
+.ai-developer-assistant-error-solution h4,
+.ai-developer-assistant-error-code h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #23282d;
+}
+
+.ai-developer-assistant-error-actions {
+    margin-top: 15px;
+}
+
+.ai-developer-assistant-error-actions button {
+    margin-right: 10px;
+}
+
+.ai-developer-assistant-error-code code {
+    display: block;
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+/* GitHub Integration Styles */
+.ai-developer-assistant-github-integration {
+    margin-top: 20px;
+}
+
+.ai-developer-assistant-connection-status {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.ai-developer-assistant-connection-status.connected {
+    background-color: #f0f7f0;
+    border: 1px solid #c3e6cb;
+}
+
+.ai-developer-assistant-connection-status.not-connected {
+    background-color: #f8f0f0;
+    border: 1px solid #f5c6cb;
+}
+
+.ai-developer-assistant-connection-status .dashicons-yes-alt {
+    color: #28a745;
+}
+
+.ai-developer-assistant-connection-status .dashicons-no {
+    color: #dc3545;
+}
+
+.ai-developer-assistant-connection-status .error {
+    color: #dc3545;
+    display: block;
+    margin-top: 5px;
+}
+
+.ai-developer-assistant-repos-list,
+.ai-developer-assistant-gists-list,
+.ai-developer-assistant-commits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ai-developer-assistant-repo-item,
+.ai-developer-assistant-gist-item,
+.ai-developer-assistant-commit-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.ai-developer-assistant-repo-header,
+.ai-developer-assistant-gist-header,
+.ai-developer-assistant-commit-header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.ai-developer-assistant-repo-description {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.ai-developer-assistant-repo-details,
+.ai-developer-assistant-gist-details,
+.ai-developer-assistant-commit-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.ai-developer-assistant-private-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 3px;
+}
+
+.ai-developer-assistant-gist-files ul {
+    margin: 5px 0 10px 20px;
+}
+
+.ai-developer-assistant-fetched-file-info {
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-code-container {
+    margin-bottom: 15px;
+}
+
+.ai-developer-assistant-code-header {
+    padding: 8px 15px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: monospace;
+}
+
+.ai-developer-assistant-code-actions {
+    margin-top: 10px;
+}
+
+.ai-developer-assistant-code-actions button {
+    margin-right: 10px;
+}
+
+/* Loading overlay */
+#ai-developer-assistant-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-developer-assistant-loading-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ai-developer-assistant-spinner {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notifications */
+.ai-developer-assistant-notification {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    max-width: 350px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.ai-developer-assistant-notification.show {
+    transform: translateX(0);
+}
+
+.ai-developer-assistant-notification.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.ai-developer-assistant-notification.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.ai-developer-assistant-notification-content {
+    margin-right: 20px;
+}
+
+.ai-developer-assistant-notification-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.ai-developer-assistant-notification a {
+    color: inherit;
+    text-decoration: underline;
+}
